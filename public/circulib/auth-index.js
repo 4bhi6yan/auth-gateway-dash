@@ -49,13 +49,6 @@ document.getElementById("signupForm")?.addEventListener("submit", async (e) => {
   } catch (err) { toast(err.message, true); }
 });
 
-document.getElementById("googleBtn")?.addEventListener("click", async () => {
-  try { await signInOAuth("google"); } catch (e) { toast(e.message, true); }
-});
-document.getElementById("facebookBtn")?.addEventListener("click", async () => {
-  try { await signInOAuth("facebook"); }
-  catch (e) { toast("Facebook needs to be enabled in backend auth settings.", true); }
-});
 
 document.getElementById("forgotLink")?.addEventListener("click", async (e) => {
   e.preventDefault();

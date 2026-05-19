@@ -477,3 +477,88 @@
   /* ---------- Boot ---------- */
   mountAll();
 })();
+/* ============ FINE TRACKER (functional) ============ */
+(function fineTracker(){
+  const GATEWAYS = [
+    { name:'Razorpay', url:'https://razorpay.com/payment-link/' },
+    { name:'Stripe',   url:'https://buy.stripe.com/test_5kA8wZcGc4xS7nW3cc' },
+    { name:'PayPal',   url:'https://www.paypal.com/checkoutnow' },
+    { name:'Paytm',    url:'https://paytm.com/online-payment' },
+    { name:'PhonePe',  url:'https://www.phonepe.com/payment-gateway/' },
+  ];
+  const KEY = 'circulib_fine_state';
+  const load = () => {
+    try { return JSON.parse(localStorage.getItem(KEY)) || { outstanding:40, semester:120, lifetime:460, incidents:3 }; }
+    catch { return { outstanding:40, semester:120, lifetime:460, incidents:3 }; }
+  };
+  const save = s => localStorage.setItem(KEY, JSON.stringify(s));
+
+  function toastMsg(msg){
+    const stack = document.getElementById('toastStack');
+    if(!stack){ alert(msg); return; }
+    const t = document.createElement('div');
+    t.className = 'toast'; t.textContent = msg;
+    t.style.cssText='background:rgba(20,20,28,.92);color:#fff;padding:12px 18px;border-radius:12px;margin-top:8px;font:500 14px Inter,sans-serif;box-shadow:0 8px 32px rgba(0,0,0,.4)';
+    stack.appendChild(t);
+    setTimeout(()=>t.remove(), 3500);
+  }
+
+  function render(){
+    const s = load();
+    const view = document.querySelector('[data-view="fines"]');
+    if(!view) return;
+    const cards = view.querySelectorAll('.fine-card');
+    if(cards[0]){
+      cards[0].querySelector('.fine-card__value').textContent = `₹ ${s.outstanding}`;
+      const btn = cards[0].querySelector('button.cta');
+      if(btn){
+        btn.textContent = s.outstanding>0 ? 'Pay Now' : 'All Clear ✓';
+        btn.disabled = s.outstanding===0;
+        btn.style.opacity = s.outstanding===0 ? .6 : 1;
+      }
+    }
+    if(cards[1]){
+      cards[1].querySelector('.fine-card__value').textContent = `₹ ${s.semester}`;
+      const m = cards[1].querySelector('.muted-small');
+      if(m) m.textContent = `${s.incidents} incidents`;
+    }
+    if(cards[2]) cards[2].querySelector('.fine-card__value').textContent = `₹ ${s.lifetime}`;
+
+    // header stat card
+    document.querySelectorAll('.stat').forEach(st=>{
+      const lbl = st.querySelector('.stat__label');
+      if(lbl && /active fine/i.test(lbl.textContent)){
+        const v = st.querySelector('.stat__value');
+        if(v) v.innerHTML = `₹ ${s.outstanding} <em>${s.outstanding>0?'pending':'cleared'}</em>`;
+      }
+    });
+  }
+
+  function pay(){
+    const s = load();
+    if(s.outstanding<=0){ toastMsg('No outstanding fine.'); return; }
+    const gw = GATEWAYS[Math.floor(Math.random()*GATEWAYS.length)];
+    toastMsg(`Redirecting to ${gw.name} to pay ₹${s.outstanding}…`);
+    const w = window.open(gw.url, '_blank', 'noopener');
+    // optimistically settle
+    const settled = s.outstanding;
+    setTimeout(()=>{
+      s.lifetime += 0; // already counted
+      s.outstanding = 0;
+      save(s); render();
+      toastMsg(`Payment of ₹${settled} marked as received via ${gw.name}.`);
+    }, 1500);
+  }
+
+  document.addEventListener('click', e=>{
+    const btn = e.target.closest('[data-view="fines"] .fine-card button.cta');
+    if(btn){ e.preventDefault(); pay(); }
+  });
+
+  // re-render whenever the fines view becomes active
+  const obs = new MutationObserver(render);
+  const target = document.querySelector('[data-view="fines"]');
+  if(target) obs.observe(target, { attributes:true, attributeFilter:['class','hidden','aria-hidden'] });
+  document.addEventListener('DOMContentLoaded', render);
+  render();
+})();
