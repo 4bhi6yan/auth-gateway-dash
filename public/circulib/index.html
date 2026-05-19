@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CircuLib — A Futuristic Operating System for Libraries</title>
+<meta name="description" content="CircuLib is a futuristic multi-library platform connecting students, librarians and publishers through QR-powered access, smart dashboards and OKIO, your AI library companion." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/circulib/style.css" />
+</head>
+<body>
+
+<!-- Ambient background -->
+<div class="bg-grad"></div>
+
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo">CircuLib<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#features" class="nav-link">Features</a></li>
+      <li><a href="#okio" class="nav-link">OKIO</a></li>
+      <li><a href="#login" class="nav-link nav-cta">Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <video class="hero-bg-video" src="/assets/hero.mp4" autoplay muted loop playsinline></video>
+  <div class="hero-bg-mask"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-side hero-left reveal">
+      <span class="kicker">For Students &middot; Faculty</span>
+      <h2 class="hero-side-title">Borrow<br/>Smart.</h2>
+      <p class="hero-side-text">Reserve, queue and track every book across every library — instantly.</p>
+    </div>
+
+    <div class="hero-stage reveal">
+      <div class="stage-ring"></div>
+      <div class="stage-ring stage-ring-2"></div>
+      <div class="hero-orb"></div>
+    </div>
+
+    <div class="hero-side hero-right reveal">
+      <span class="kicker">For Librarians</span>
+      <h2 class="hero-side-title">Manage<br/>Smarter.</h2>
+      <p class="hero-side-text">QR-powered issuing, returns and analytics — all in one cinematic dashboard.</p>
+    </div>
+  </div>
+
+  <div class="hero-headline reveal">
+    <h1>A futuristic operating system <span>for libraries.</span></h1>
+    <p class="hero-sub">One platform connecting students, librarians and publishers in a single, beautifully orchestrated ecosystem.</p>
+  </div>
+
+  
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="features">
+  <div class="section-head reveal">
+    <span class="kicker center">Features</span>
+    <h2 class="section-title pb-[6px]">One Platform.<br/><em>Three Powerful Roles.</em></h2>
+  </div>
+
+  <div class="features-hero">
+    <div class="features-image reveal">
+      <img src="/assets/features-books.jpeg" alt="Premium standing books" />
+      <div class="img-glow"></div>
+    </div>
+    <div class="features-intro reveal">
+      <p>CircuLib unifies the entire library experience  from the reader to the shelf to the publisher  into one elegant, futuristic system.</p>
+    </div>
+  </div>
+
+  <div class="feature-cards">
+    <article class="feature-card reveal">
+      <div class="card-num font-serif text-[#e85a02]">01</div>
+      <h3>QR Powered Book Access</h3>
+      <p>Librarians generate QR codes for every title. Students reserve books, join queues, request issuing and submit reviews — all from a single scan.</p>
+      <ul class="chips">
+        <li>Reserve</li><li>Queue</li><li>Issue</li><li>Review</li>
+      </ul>
+    </article>
+
+    <article class="feature-card reveal">
+      <div class="card-num font-serif text-[#e85a02]">02</div>
+      <h3>Publisher Marketplace</h3>
+      <p>Publishers register profiles, discover nearby libraries, connect with librarians and showcase their catalogues to a verified academic audience.</p>
+      <ul class="chips">
+        <li>Profiles</li><li>Discovery</li><li>Proposals</li><li>Ratings</li>
+      </ul>
+    </article>
+
+    <article class="feature-card reveal">
+      <div class="card-num font-serif text-[#e85a02]">03</div>
+      <h3>Three Dashboards. One Ecosystem.</h3>
+      <p>Purpose-built control rooms for Librarians, Students &amp; Faculty, and Publishers — each tailored, each connected.</p>
+      <ul class="chips">
+        <li>Librarian</li><li>Student</li><li>Publisher</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- OKIO -->
+<section id="okio" class="okio">
+  <div class="okio-inner mt-0 mb-px">
+    <div class="okio-mascot reveal">
+      <div class="mascot-halo"></div>
+      <img src="/assets/okio-wave.png" alt="OKIO mascot waving hello" />
+    </div>
+    <div class="okio-text reveal">
+      <span class="kicker">Meet OKIO</span>
+      <h2 class="section-title soft pb-[6px]">Your Smart<br/>Library Companion.</h2>
+      <p>OKIO helps users understand features, navigate the platform and answer queries — a friendly intelligence woven through every CircuLib experience.</p>
+
+      <div class="chat-mock">
+        <div class="chat-head">
+          <span class="dot"></span> OKIO &middot; online
+        </div>
+        <div class="chat-body" id="chatBody">
+          <div class="msg bot">Hi! I'm OKIO. Ask me anything about CircuLib ✨</div>
+        </div>
+        <form class="chat-input" id="chatForm">
+          <input type="text" id="chatInput" placeholder="Ask me about CircuLib..." autocomplete="off"/>
+          <button type="submit" aria-label="send">→</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGIN -->
+<section id="login" class="login">
+  <div class="login-inner">
+    <div class="login-left reveal">
+      <span class="kicker">Get Started</span>
+      <h2 class="section-title pb-[6px]">Start Your Smart<br/>Library Journey.</h2>
+      <p>Join thousands of readers, librarians and publishers shaping the future of knowledge.</p>
+    </div>
+    <div class="login-card reveal">
+      <div class="auth-tabs" role="tablist">
+        <button class="auth-tab active" data-tab="login" role="tab">Login</button>
+        <button class="auth-tab" data-tab="signup" role="tab">Create Account</button>
+        <span class="auth-tab-underline"></span>
+      </div>
+
+      <div class="auth-panel active" data-panel="login">
+        <span class="kicker">Select Your Role</span>
+        <div class="role-pills">
+          <button class="role-pill active" data-role="Student">Student</button>
+          <button class="role-pill" data-role="Faculty">Faculty</button>
+          <button class="role-pill" data-role="Librarian">Librarian</button>
+          <button class="role-pill" data-role="Publisher">Publisher</button>
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@university.edu" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" />
+        </div>
+        <button class="btn btn-primary btn-block">Login to CircuLib</button>
+        <p class="auth-foot">Forgot password? <a href="#">Reset here</a></p>
+      </div>
+
+      <div class="auth-panel" data-panel="signup">
+        <span class="kicker">I am a</span>
+        <div class="role-pills">
+          <button class="role-pill active" data-role="Student">Student</button>
+          <button class="role-pill" data-role="Faculty">Faculty</button>
+          <button class="role-pill" data-role="Librarian">Librarian</button>
+          <button class="role-pill" data-role="Publisher">Publisher</button>
+        </div>
+        <div class="field">
+          <label>Full Name</label>
+          <input type="text" placeholder="Your full name" />
+        </div>
+        <div class="field">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@university.edu" />
+        </div>
+        <div class="field">
+          <label>Create Password</label>
+          <input type="password" placeholder="••••••••" />
+        </div>
+        <button class="btn btn-primary btn-block">Create Account</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="#home" class="logo">CircuLib<span>.</span></a>
+      <p>A futuristic operating system for libraries.</p>
+    </div>
+    <div class="footer-cols">
+      <div>
+        <h4>Navigate</h4>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#okio">OKIO</a>
+        <a href="#login">Login</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:circulib26@gmail.com">circulib26@gmail.com</a>
+        <a href="tel:1100223344">1100223344</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-base">
+    <span>© 2026 CircuLib. All rights reserved.</span>
+    <span>Crafted with cinematic care.</span>
+  </div>
+</footer>
+
+<!-- Chip detail modal -->
+<div class="chip-modal" id="chipModal" aria-hidden="true">
+  <div class="chip-modal-backdrop" data-close></div>
+  <div class="chip-modal-card" role="dialog" aria-modal="true" aria-labelledby="chipModalTitle">
+    <button class="chip-modal-close" data-close aria-label="Close">×</button>
+    <span class="kicker" id="chipModalKicker">Feature</span>
+    <h3 id="chipModalTitle">Title</h3>
+    <p id="chipModalBody">Description</p>
+  </div>
+</div>
+
+<!-- Floating chatbot bubble + popover -->
+<div class="chat-pop" id="chatPop" aria-hidden="true">
+  <div class="chat-mock">
+    <div class="chat-head">
+      <span class="dot"></span> OKIO &middot; online
+      <button class="chat-pop-close" id="chatPopClose" aria-label="Close">×</button>
+    </div>
+    <div class="chat-body" id="chatPopBody">
+      <div class="msg bot">Hi! I'm OKIO. Ask me anything about CircuLib ✨</div>
+    </div>
+    <form class="chat-input" id="chatPopForm">
+      <input type="text" id="chatPopInput" placeholder="Ask me about CircuLib..." autocomplete="off"/>
+      <button type="submit" aria-label="send">→</button>
+    </form>
+  </div>
+</div>
+
+<button class="chat-bubble" id="chatBubble" aria-label="Open OKIO">
+  <img src="/assets/okio.png" alt=""/>
+  <span class="pulse"></span>
+</button>
+
+<script src="/circulib/script.js"></script>
+</body>
+</html>

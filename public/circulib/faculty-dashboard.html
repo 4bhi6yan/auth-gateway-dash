@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CircuLib — Faculty Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="faculty-dashboard.css" />
+</head>
+<body>
+
+<!-- Ambient aurora -->
+<div class="fc-aurora">
+  <span class="fc-blob fc-blob--1"></span>
+  <span class="fc-blob fc-blob--2"></span>
+  <span class="fc-blob fc-blob--3"></span>
+</div>
+
+<div class="fc-app">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="fc-sidebar fc-glass">
+    <div class="fc-brand">
+      <div class="fc-brand__mark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5a2 2 0 0 1 2-2h6v18H6a2 2 0 0 1-2-2V5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5a2 2 0 0 0-2-2h-6v18h6a2 2 0 0 0 2-2V5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </div>
+      <div class="fc-brand__text">
+        <span class="fc-brand__name">CircuLib</span>
+        <span class="fc-brand__tag">Faculty OS</span>
+      </div>
+    </div>
+
+    <nav class="fc-nav">
+      <span class="fc-nav__label">Workspace</span>
+      <a href="#" class="fc-nav__item is-active" data-section="dashboard">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 12 12 4l9 8" stroke="currentColor" stroke-width="1.6"/><path d="M5 10v9h14v-9" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="issued">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2V5Z" stroke="currentColor" stroke-width="1.5"/><path d="M8 7h6" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Issued Books</span>
+        <em class="fc-nav__badge">5</em>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="recommend">
+        <svg viewBox="0 0 24 24" fill="none"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <span>Recommendations</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="academic">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 7 12 4l9 3-9 3-9-3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 10v5c0 1.5 2.5 3 5 3s5-1.5 5-3v-5" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Academic Resources</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="reservations">
+        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Reservations</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="requests">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Requests</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="arrivals">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>New Arrivals</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="research">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Research Resources</span>
+      </a>
+
+      <span class="fc-nav__label">Updates</span>
+      <a href="#" class="fc-nav__item" data-section="notifications">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 9a6 6 0 1 1 12 0v4l2 3H4l2-3V9Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Notifications</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="announcements">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M4 10v4l13 5V5L4 10Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Announcements</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="guidelines">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h11l3 3v13H5V4Z" stroke="currentColor" stroke-width="1.5"/><path d="M8 11h8M8 15h6" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Guidelines</span>
+      </a>
+      <a href="#" class="fc-nav__item" data-section="saved">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h12v17l-6-4-6 4V4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        <span>Saved Resources</span>
+      </a>
+    </nav>
+
+    <div class="fc-profile">
+      <div class="fc-profile__avatar">DR</div>
+      <div class="fc-profile__info">
+        <span class="fc-profile__name">Dr. Reyna Okafor</span>
+        <span class="fc-profile__role">Faculty · Computer Science</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="fc-main">
+
+    <!-- Topbar -->
+    <header class="fc-topbar fc-glass">
+      <div class="fc-search">
+        <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="1.6"/></svg>
+        <input id="fcSearch" type="text" placeholder="Search books, research papers, students…" />
+        <div class="fc-search__dropdown" id="fcSearchDropdown"></div>
+      </div>
+
+      <div class="fc-topbar__actions">
+        <button class="fc-chip" data-filter="all">All</button>
+        <button class="fc-chip" data-filter="research">Research</button>
+        <button class="fc-chip" data-filter="textbook">Textbooks</button>
+        <button class="fc-chip" data-filter="journal">Journals</button>
+
+        <button class="fc-icon-btn" title="Due alerts" data-modal="due">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg>
+          <em class="fc-icon-btn__dot"></em>
+        </button>
+        <button class="fc-icon-btn" title="Saved" data-section-go="saved">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h12v17l-6-4-6 4V4Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <button class="fc-icon-btn" title="Recommendations" data-section-go="recommend">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </button>
+        <button class="fc-icon-btn" title="Notifications" data-modal="notif">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9a6 6 0 1 1 12 0v4l2 3H4l2-3V9Z" stroke="currentColor" stroke-width="1.5"/><path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5"/></svg>
+          <em class="fc-icon-btn__dot fc-icon-btn__dot--warm"></em>
+        </button>
+        <button class="fc-icon-btn fc-icon-btn--okio" title="OKIO Assistant" id="fcOkioOpen">
+          <img src="assets/okio.png" alt="OKIO" />
+        </button>
+
+        <div class="fc-profile-chip">
+          <div class="fc-profile-chip__avatar">DR</div>
+          <div class="fc-profile-chip__meta">
+            <span>Dr. Reyna</span>
+            <small>Faculty</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Greeting -->
+    <section class="fc-hero">
+      <div>
+        <span class="fc-kicker">Faculty Workspace</span>
+        <h1>Good evening, <em>Dr. Reyna</em>.</h1>
+        <p>Curate recommendations, track issued resources and shape your students' reading journey.</p>
+      </div>
+      <button class="fc-btn fc-btn--primary" data-section-go="recommend">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2"/></svg>
+        New Recommendation
+      </button>
+    </section>
+
+    <!-- Overview cards -->
+    <section class="fc-overview">
+      <article class="fc-stat fc-glass">
+        <div class="fc-stat__icon fc-stat__icon--rose">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <span class="fc-stat__label">Active Recommendations</span>
+          <strong class="fc-stat__value">24</strong>
+          <small class="fc-stat__delta fc-up">+3 this week</small>
+        </div>
+      </article>
+      <article class="fc-stat fc-glass">
+        <div class="fc-stat__icon fc-stat__icon--warm">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2V5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <span class="fc-stat__label">Currently Issued</span>
+          <strong class="fc-stat__value">5</strong>
+          <small class="fc-stat__delta">2 due soon</small>
+        </div>
+      </article>
+      <article class="fc-stat fc-glass">
+        <div class="fc-stat__icon fc-stat__icon--purple">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="17" cy="9" r="2.5" stroke="currentColor" stroke-width="1.5"/><path d="M3 19c.6-3 3.2-5 6-5s5.4 2 6 5M14 19c.4-2 2-3 3.5-3s3 1 3.5 3" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <span class="fc-stat__label">Student Engagement</span>
+          <strong class="fc-stat__value">86%</strong>
+          <small class="fc-stat__delta fc-up">+4.2%</small>
+        </div>
+      </article>
+      <article class="fc-stat fc-glass">
+        <div class="fc-stat__icon fc-stat__icon--rose">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <span class="fc-stat__label">Reservation Requests</span>
+          <strong class="fc-stat__value">12</strong>
+          <small class="fc-stat__delta">4 awaiting</small>
+        </div>
+      </article>
+      <article class="fc-stat fc-glass">
+        <div class="fc-stat__icon fc-stat__icon--warm">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 7 12 4l9 3-9 3-9-3Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <span class="fc-stat__label">Academic Resources</span>
+          <strong class="fc-stat__value">312</strong>
+          <small class="fc-stat__delta fc-up">+18 new</small>
+        </div>
+      </article>
+      <article class="fc-stat fc-glass">
+        <div class="fc-stat__icon fc-stat__icon--purple">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m4 16 5-6 4 4 7-9" stroke="currentColor" stroke-width="1.6"/></svg>
+        </div>
+        <div>
+          <span class="fc-stat__label">Research Activity</span>
+          <strong class="fc-stat__value">47</strong>
+          <small class="fc-stat__delta fc-up">+9 sessions</small>
+        </div>
+      </article>
+    </section>
+
+    <!-- Grid: Issued + Engagement -->
+    <section class="fc-grid fc-grid--2-1">
+      <article class="fc-panel fc-glass" id="fcIssued">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Currently Issued</h3>
+            <p>Your active loans across the network.</p>
+          </div>
+          <button class="fc-link">View all →</button>
+        </header>
+        <div class="fc-issued-list" id="fcIssuedList"></div>
+      </article>
+
+      <article class="fc-panel fc-glass">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Student Engagement</h3>
+            <p>Recommendation pickup this week.</p>
+          </div>
+        </header>
+        <div class="fc-engage">
+          <div class="fc-engage__chart" id="fcEngageChart"></div>
+          <ul class="fc-engage__legend">
+            <li><span class="dot warm"></span> Most viewed <strong>Designing Data-Intensive Apps</strong></li>
+            <li><span class="dot rose"></span> Top category <strong>Algorithms</strong></li>
+            <li><span class="dot purple"></span> Avg. read-through <strong>72%</strong></li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <!-- Recommendation system -->
+    <section class="fc-panel fc-glass">
+      <header class="fc-panel__head">
+        <div>
+          <h3>Faculty Recommendation System</h3>
+          <p>Curated reading directed at your students.</p>
+        </div>
+        <button class="fc-btn fc-btn--ghost" id="fcAddRec">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2"/></svg>
+          Add Recommendation
+        </button>
+      </header>
+      <div class="fc-rec-grid" id="fcRecGrid"></div>
+    </section>
+
+    <!-- Academic + Research -->
+    <section class="fc-grid fc-grid--1-1">
+      <article class="fc-panel fc-glass">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Academic Resources</h3>
+            <p>Curated subjects and collections.</p>
+          </div>
+        </header>
+        <div class="fc-cats">
+          <button class="fc-cat"><span>📐</span>Algorithms<small>48 titles</small></button>
+          <button class="fc-cat"><span>🧠</span>AI & ML<small>62 titles</small></button>
+          <button class="fc-cat"><span>🔐</span>Cryptography<small>21 titles</small></button>
+          <button class="fc-cat"><span>🛰️</span>Distributed Sys<small>34 titles</small></button>
+          <button class="fc-cat"><span>📊</span>Data Science<small>57 titles</small></button>
+          <button class="fc-cat"><span>🧪</span>Theory<small>19 titles</small></button>
+        </div>
+      </article>
+
+      <article class="fc-panel fc-glass">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Research Resources</h3>
+            <p>Trending in your faculty network.</p>
+          </div>
+        </header>
+        <ul class="fc-research-list">
+          <li><span class="fc-rank">01</span><div><strong>Attention Is All You Need — revisited</strong><small>Curated · ML / Transformers</small></div><em>+218</em></li>
+          <li><span class="fc-rank">02</span><div><strong>Foundations of Cryptographic Protocols</strong><small>Curated · Security</small></div><em>+174</em></li>
+          <li><span class="fc-rank">03</span><div><strong>Modern Compiler Construction</strong><small>Curated · Systems</small></div><em>+131</em></li>
+          <li><span class="fc-rank">04</span><div><strong>Quantum Algorithms: A Survey</strong><small>Curated · Theory</small></div><em>+98</em></li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="fc-panel fc-glass">
+      <header class="fc-panel__head">
+        <div>
+          <h3>New Arrivals</h3>
+          <p>Fresh in the library this week.</p>
+        </div>
+        <button class="fc-link">Browse →</button>
+      </header>
+      <div class="fc-arrivals" id="fcArrivals"></div>
+    </section>
+
+    <!-- Reservations + Requests -->
+    <section class="fc-grid fc-grid--1-1">
+      <article class="fc-panel fc-glass">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Reservation Queue</h3>
+            <p>Books awaiting availability.</p>
+          </div>
+        </header>
+        <ul class="fc-queue" id="fcQueue"></ul>
+      </article>
+
+      <article class="fc-panel fc-glass">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Requests</h3>
+            <p>Open conversations with the librarian.</p>
+          </div>
+        </header>
+        <ul class="fc-reqs" id="fcReqs"></ul>
+      </article>
+    </section>
+
+    <!-- Saved + Announcements -->
+    <section class="fc-grid fc-grid--1-1">
+      <article class="fc-panel fc-glass">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Saved Resources</h3>
+            <p>Your bookmarks and reading lists.</p>
+          </div>
+        </header>
+        <div class="fc-saved" id="fcSaved"></div>
+      </article>
+
+      <article class="fc-panel fc-glass">
+        <header class="fc-panel__head">
+          <div>
+            <h3>Announcements</h3>
+            <p>From the library and academic office.</p>
+          </div>
+        </header>
+        <ul class="fc-anns" id="fcAnns"></ul>
+      </article>
+    </section>
+
+    <!-- Guidelines accordion -->
+    <section class="fc-panel fc-glass">
+      <header class="fc-panel__head">
+        <div>
+          <h3>Book Guidelines</h3>
+          <p>Faculty policies & expectations.</p>
+        </div>
+      </header>
+      <div class="fc-acc" id="fcAcc">
+        <details><summary>Issue policies</summary><p>Faculty members may hold up to 8 books simultaneously for a maximum of 60 days, extendable twice through the dashboard.</p></details>
+        <details><summary>Faculty responsibilities</summary><p>Recommend at least 2 titles per active course. Notify librarian about damaged or missing materials within 7 days.</p></details>
+        <details><summary>Recommendation guidelines</summary><p>Recommendations are surfaced to students enrolled in your courses. Add a one-line academic note to clarify intent.</p></details>
+        <details><summary>Reservation policies</summary><p>Reservations expire after 72 hours of availability. Priority is given to faculty-curated lists during exam periods.</p></details>
+      </div>
+    </section>
+
+    <footer class="fc-foot">CircuLib · Faculty OS · v1.0</footer>
+  </main>
+</div>
+
+<!-- ============ MODALS ============ -->
+<div class="fc-modal" id="fcModal" aria-hidden="true">
+  <div class="fc-modal__backdrop" data-close></div>
+  <div class="fc-modal__card fc-glass" role="dialog" aria-modal="true">
+    <button class="fc-modal__close" data-close>×</button>
+    <span class="fc-kicker" id="fcModalKicker">Modal</span>
+    <h3 id="fcModalTitle">Title</h3>
+    <div id="fcModalBody"></div>
+  </div>
+</div>
+
+<!-- ============ OKIO ============ -->
+<button class="fc-okio-fab" id="fcOkioFab" aria-label="Open OKIO">
+  <img src="assets/okio.png" alt="OKIO"/>
+  <span class="fc-okio-fab__pulse"></span>
+</button>
+
+<div class="fc-okio-panel fc-glass" id="fcOkioPanel" aria-hidden="true">
+  <header class="fc-okio-panel__head">
+    <img src="assets/okio.png" alt=""/>
+    <div>
+      <strong>OKIO</strong>
+      <small><span class="fc-dot"></span> online · academic mode</small>
+    </div>
+    <button class="fc-okio-panel__close" id="fcOkioClose">×</button>
+  </header>
+  <div class="fc-okio-panel__body" id="fcOkioBody">
+    <div class="fc-msg bot">Hi Dr. Reyna — I can suggest readings, draft recommendation notes or surface trending research. What shall we explore?</div>
+  </div>
+  <form class="fc-okio-panel__input" id="fcOkioForm">
+    <input id="fcOkioInput" type="text" placeholder="Ask OKIO about recommendations, research, students…" autocomplete="off"/>
+    <button type="submit">→</button>
+  </form>
+</div>
+
+<script src="faculty-dashboard.js"></script>
+</body>
+</html>

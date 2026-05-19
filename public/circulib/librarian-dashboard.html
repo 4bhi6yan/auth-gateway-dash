@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CircuLib — Librarian Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="student-dashboard.css" />
+<link rel="stylesheet" href="librarian-dashboard.css" />
+</head>
+<body>
+  <div class="aurora">
+    <div class="aurora__blob aurora__blob--1"></div>
+    <div class="aurora__blob aurora__blob--2"></div>
+    <div class="aurora__blob aurora__blob--3"></div>
+  </div>
+
+  <div class="app">
+    <!-- SIDEBAR -->
+    <aside class="sidebar glass">
+      <div class="brand">
+        <div class="brand__mark">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 5a2 2 0 0 1 2-2h6v18H6a2 2 0 0 1-2-2V5Z" stroke="currentColor" stroke-width="1.5"/><path d="M20 5a2 2 0 0 0-2-2h-6v18h6a2 2 0 0 0 2-2V5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="brand__text">
+          <span class="brand__name">CircuLib</span>
+          <span class="brand__tag">Librarian OS</span>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <span class="nav__label">Operations</span>
+        <a href="#" class="nav__item is-active" data-section="dashboard">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 12 12 4l9 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M5 10v9h14v-9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav__item" data-section="inventory">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>
+          <span>Inventory</span>
+        </a>
+        <a href="#" class="nav__item" data-section="issue">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 5h10a3 3 0 0 1 3 3v12H7a3 3 0 0 1-3-3V5Z" stroke="currentColor" stroke-width="1.5"/><path d="M14 14h6m-3-3v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Issue Books</span>
+        </a>
+        <a href="#" class="nav__item" data-section="return">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 6 4 11l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 11h11a5 5 0 0 1 5 5v2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Return Books</span>
+        </a>
+        <a href="#" class="nav__item" data-section="requests">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Requests</span>
+          <em class="nav__badge">7</em>
+        </a>
+        <a href="#" class="nav__item" data-section="qr">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="4" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="14" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M14 14h3v3M20 14v6M17 20h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>QR System</span>
+        </a>
+        <a href="#" class="nav__item" data-section="fines">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M7 7h7a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Fine Management</span>
+        </a>
+
+        <span class="nav__label">Insights</span>
+        <a href="#" class="nav__item" data-section="analytics">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 19V5M4 19h16M8 16V11M12 16V8M16 16v-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Analytics</span>
+        </a>
+        <a href="#" class="nav__item" data-section="announcements">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 10v4l13 5V5L4 10Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M17 9a3 3 0 0 1 0 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Announcements</span>
+        </a>
+        <a href="#" class="nav__item" data-section="guidelines">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 4h9l4 4v12H6V4Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Guidelines</span>
+        </a>
+        <a href="#" class="nav__item" data-section="notifications">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9a6 6 0 1 1 12 0v4l2 3H4l2-3V9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Notifications</span>
+        </a>
+        <a href="#" class="nav__item" data-section="search">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span>Database Search</span>
+        </a>
+      </nav>
+
+      <div class="profile glass-inner">
+        <div class="profile__avatar">SK</div>
+        <div class="profile__info">
+          <strong>S. Kapoor</strong>
+          <span>Head Librarian</span>
+        </div>
+        <button class="profile__more" aria-label="More">⋯</button>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- TOPBAR -->
+      <header class="topbar glass">
+        <div class="search">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.6"/><path d="m20 20-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input id="globalSearch" type="text" placeholder="Search books, students, faculty, ISBN…" />
+          <kbd>⌘ K</kbd>
+          <div class="search__dropdown glass" id="searchDropdown" hidden></div>
+        </div>
+        <div class="topbar__stats">
+          <button class="stat-chip" data-section="overdue" title="Overdue books"><span class="dot dot--warn"></span>12 Overdue</button>
+          <button class="stat-chip" data-section="requests" title="Pending requests"><span class="dot dot--peach"></span>7 Requests</button>
+          <button class="stat-chip" title="Active users"><span class="dot dot--ok"></span>148 Active</button>
+        </div>
+        <div class="topbar__actions">
+          <button class="btn btn--ghost" id="quickIssueBtn">+ Issue Book</button>
+          <button class="btn btn--ghost" id="quickQrBtn">QR</button>
+          <button class="icon-btn" id="notifBtn" aria-label="Notifications">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M6 9a6 6 0 1 1 12 0v4l2 3H4l2-3V9Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M10 19a2 2 0 0 0 4 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span class="dot dot--peach notif-dot"></span>
+          </button>
+          <button class="okio-trigger" id="okioBtn" title="OKIO Assistant">
+            <img src="assets/okio.png" alt="OKIO" />
+          </button>
+        </div>
+
+        <!-- Notifications panel -->
+        <div class="notif-panel glass" id="notifPanel" hidden>
+          <div class="notif-panel__head">
+            <h4>Notifications</h4>
+            <button class="link" id="markAllRead">Mark all read</button>
+          </div>
+          <ul class="notif-list">
+            <li><span class="dot dot--warn"></span><div><strong>12 books overdue</strong><span>4 students > 7 days</span></div><em>3m</em></li>
+            <li><span class="dot dot--peach"></span><div><strong>New publisher request</strong><span>Penguin Random House — 24 titles</span></div><em>18m</em></li>
+            <li><span class="dot dot--ok"></span><div><strong>QR batch generated</strong><span>50 codes ready for printing</span></div><em>1h</em></li>
+            <li><span class="dot dot--ok"></span><div><strong>Inventory synced</strong><span>3,481 titles · last 2 minutes</span></div><em>2h</em></li>
+          </ul>
+        </div>
+      </header>
+
+      <!-- ============== DASHBOARD VIEW ============== -->
+      <section class="view is-active" data-view="dashboard">
+        <div class="hello">
+          <div>
+            <span class="kicker">Good morning, Saanvi</span>
+            <h1>Operational Control Center</h1>
+            <p class="hello__sub">3 requests need approval · 12 books overdue · 50 QR codes ready</p>
+          </div>
+          <div class="hello__meta">
+            <div class="meta-pill"><span>Today</span><strong id="todayDate">—</strong></div>
+            <div class="meta-pill"><span>Branch</span><strong>Central · Floor 2</strong></div>
+          </div>
+        </div>
+
+        <!-- Overview cards -->
+        <div class="stat-grid">
+          <div class="stat-card glass">
+            <div class="stat-card__icon icon--peach">📚</div>
+            <span class="muted-small">Books Issued Today</span>
+            <strong>84</strong>
+            <em class="trend up">+12% vs yesterday</em>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-card__icon icon--rose">↩</div>
+            <span class="muted-small">Pending Returns</span>
+            <strong>37</strong>
+            <em class="trend">Due today · 9</em>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-card__icon icon--warn">⚠</div>
+            <span class="muted-small">Overdue Books</span>
+            <strong>12</strong>
+            <em class="trend down">4 critical</em>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-card__icon icon--purple">👥</div>
+            <span class="muted-small">Active Users</span>
+            <strong>148</strong>
+            <em class="trend up">+8 this hour</em>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-card__icon icon--peach">📨</div>
+            <span class="muted-small">Publisher Requests</span>
+            <strong>5</strong>
+            <em class="trend">3 awaiting review</em>
+          </div>
+          <div class="stat-card glass">
+            <div class="stat-card__icon icon--rose">▥</div>
+            <span class="muted-small">QR Scans</span>
+            <strong>312</strong>
+            <em class="trend up">Peak 11–12</em>
+          </div>
+        </div>
+
+        <!-- Two-column workspace -->
+        <div class="workspace">
+          <!-- Pending requests -->
+          <article class="panel glass">
+            <header class="panel__head">
+              <div><h3>Pending Requests</h3><span class="muted-small">Students · Faculty · Publishers</span></div>
+              <div class="tabs" id="reqTabs">
+                <button class="tab is-active" data-tab="all">All · 7</button>
+                <button class="tab" data-tab="student">Students · 3</button>
+                <button class="tab" data-tab="faculty">Faculty · 2</button>
+                <button class="tab" data-tab="publisher">Publishers · 2</button>
+              </div>
+            </header>
+            <ul class="req-list" id="reqList"></ul>
+          </article>
+
+          <!-- Overdue alerts -->
+          <article class="panel glass panel--warn">
+            <header class="panel__head">
+              <div><h3>Overdue Alerts</h3><span class="muted-small">Auto-flagged · update every 5 min</span></div>
+              <button class="link">View all</button>
+            </header>
+            <ul class="overdue-list">
+              <li>
+                <div class="ov-row">
+                  <div class="ov-row__main">
+                    <strong>Anika R.</strong><span class="muted-small">CS · 3rd yr</span>
+                  </div>
+                  <span class="chip chip--danger">14 days</span>
+                </div>
+                <div class="ov-row__sub"><span>Designing Data-Intensive Apps</span><em>Fine ₹140</em></div>
+              </li>
+              <li>
+                <div class="ov-row">
+                  <div class="ov-row__main">
+                    <strong>Rohan M.</strong><span class="muted-small">EC · 2nd yr</span>
+                  </div>
+                  <span class="chip chip--warn">6 days</span>
+                </div>
+                <div class="ov-row__sub"><span>Clean Architecture</span><em>Fine ₹60</em></div>
+              </li>
+              <li>
+                <div class="ov-row">
+                  <div class="ov-row__main">
+                    <strong>Prof. Iyer</strong><span class="muted-small">Faculty · Physics</span>
+                  </div>
+                  <span class="chip chip--warn">4 days</span>
+                </div>
+                <div class="ov-row__sub"><span>Feynman Lectures Vol II</span><em>Fine waived</em></div>
+              </li>
+              <li>
+                <div class="ov-row">
+                  <div class="ov-row__main">
+                    <strong>Maya P.</strong><span class="muted-small">Design · 1st yr</span>
+                  </div>
+                  <span class="chip chip--warn">3 days</span>
+                </div>
+                <div class="ov-row__sub"><span>The Design of Everyday Things</span><em>Fine ₹30</em></div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Activity + circulation -->
+        <div class="workspace">
+          <article class="panel glass">
+            <header class="panel__head">
+              <div><h3>Issue / Return Activity</h3><span class="muted-small">Last 12 hours</span></div>
+              <div class="legend"><i class="lg lg--peach"></i>Issued<i class="lg lg--rose"></i>Returned</div>
+            </header>
+            <div class="chart" id="activityChart"></div>
+          </article>
+
+          <article class="panel glass">
+            <header class="panel__head">
+              <div><h3>Most Requested</h3><span class="muted-small">This week</span></div>
+              <button class="link">Inventory →</button>
+            </header>
+            <div class="popular" id="popularBooks"></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============== INVENTORY VIEW ============== -->
+      <section class="view" data-view="inventory">
+        <header class="view__head">
+          <div><span class="kicker">Inventory</span><h2>Catalog Workspace</h2></div>
+          <div class="filters">
+            <button class="chip chip--ghost is-active" data-filter="all">All</button>
+            <button class="chip chip--ghost" data-filter="low">Low Stock</button>
+            <button class="chip chip--ghost" data-filter="popular">Popular</button>
+            <button class="chip chip--ghost" data-filter="new">New Arrivals</button>
+          </div>
+        </header>
+        <div class="inv-grid" id="invGrid"></div>
+      </section>
+
+      <!-- ============== ISSUE VIEW ============== -->
+      <section class="view" data-view="issue">
+        <header class="view__head">
+          <div><span class="kicker">Issue</span><h2>Issue a Book</h2></div>
+        </header>
+        <div class="issue-grid">
+          <article class="panel glass">
+            <h3>1 · Find Student</h3>
+            <input class="field" placeholder="Search by name, ID, or scan QR" />
+            <ul class="mini-list">
+              <li class="is-selected"><strong>Anika R.</strong><span>STU-2103 · CS</span></li>
+              <li><strong>Rohan M.</strong><span>STU-2207 · EC</span></li>
+              <li><strong>Maya P.</strong><span>STU-2312 · Design</span></li>
+            </ul>
+          </article>
+          <article class="panel glass">
+            <h3>2 · Pick Book</h3>
+            <input class="field" placeholder="Search book or ISBN" />
+            <div class="pick-grid" id="pickGrid"></div>
+          </article>
+          <article class="panel glass">
+            <h3>3 · Confirm</h3>
+            <div class="confirm">
+              <div class="confirm__row"><span>Student</span><strong>Anika R.</strong></div>
+              <div class="confirm__row"><span>Book</span><strong id="confirmBook">Cosmos · Carl Sagan</strong></div>
+              <div class="confirm__row"><span>Duration</span><strong>14 days</strong></div>
+              <div class="confirm__row"><span>Due</span><strong>May 31, 2026</strong></div>
+              <button class="btn btn--primary btn--block" id="issueConfirm">Issue Book</button>
+              <button class="btn btn--ghost btn--block">Save Draft</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============== RETURN VIEW ============== -->
+      <section class="view" data-view="return">
+        <header class="view__head">
+          <div><span class="kicker">Return</span><h2>Return Management</h2></div>
+        </header>
+        <article class="panel glass">
+          <table class="table">
+            <thead><tr><th>Student</th><th>Book</th><th>Due</th><th>Status</th><th>Fine</th><th></th></tr></thead>
+            <tbody id="returnTable"></tbody>
+          </table>
+        </article>
+      </section>
+
+      <!-- ============== REQUESTS VIEW ============== -->
+      <section class="view" data-view="requests">
+        <header class="view__head">
+          <div><span class="kicker">Requests</span><h2>Request Management</h2></div>
+        </header>
+        <div class="req-grid">
+          <article class="panel glass">
+            <h3>Student Requests <em class="count">3</em></h3>
+            <ul class="req-list" data-source="student"></ul>
+          </article>
+          <article class="panel glass">
+            <h3>Faculty Requests <em class="count">2</em></h3>
+            <ul class="req-list" data-source="faculty"></ul>
+          </article>
+          <article class="panel glass">
+            <h3>Publisher Requests <em class="count">2</em></h3>
+            <ul class="req-list" data-source="publisher"></ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============== QR VIEW ============== -->
+      <section class="view" data-view="qr">
+        <header class="view__head">
+          <div><span class="kicker">QR System</span><h2>QR Workspace</h2></div>
+        </header>
+        <div class="qr-grid">
+          <article class="panel glass">
+            <h3>Generate</h3>
+            <input class="field" placeholder="Book title or ISBN" />
+            <input class="field" placeholder="Quantity" value="1" />
+            <button class="btn btn--primary btn--block">Generate QR</button>
+            <div class="qr-preview" id="qrPreview"></div>
+          </article>
+          <article class="panel glass">
+            <h3>Recent Scans</h3>
+            <ul class="scan-list">
+              <li><strong>Cosmos</strong><span>STU-2103 · 2m ago</span></li>
+              <li><strong>Clean Architecture</strong><span>STU-2207 · 8m ago</span></li>
+              <li><strong>Atomic Habits</strong><span>STU-2312 · 14m ago</span></li>
+              <li><strong>Sapiens</strong><span>STU-2440 · 21m ago</span></li>
+            </ul>
+          </article>
+          <article class="panel glass">
+            <h3>Reservation Queue</h3>
+            <ul class="scan-list">
+              <li><strong>Designing Data-Intensive Apps</strong><span>4 in queue</span></li>
+              <li><strong>The Pragmatic Programmer</strong><span>2 in queue</span></li>
+              <li><strong>Deep Work</strong><span>3 in queue</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============== FINES VIEW ============== -->
+      <section class="view" data-view="fines">
+        <header class="view__head">
+          <div><span class="kicker">Fines</span><h2>Fine Management</h2></div>
+        </header>
+        <article class="panel glass">
+          <table class="table">
+            <thead><tr><th>Student</th><th>Book</th><th>Days Late</th><th>Amount</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr><td>Anika R.</td><td>Designing Data-Intensive Apps</td><td>14</td><td>₹140</td><td><span class="chip chip--danger">Unpaid</span></td><td><button class="btn btn--ghost btn--sm">Mark Paid</button></td></tr>
+              <tr><td>Rohan M.</td><td>Clean Architecture</td><td>6</td><td>₹60</td><td><span class="chip chip--warn">Unpaid</span></td><td><button class="btn btn--ghost btn--sm">Mark Paid</button></td></tr>
+              <tr><td>Maya P.</td><td>The Design of Everyday Things</td><td>3</td><td>₹30</td><td><span class="chip chip--warn">Unpaid</span></td><td><button class="btn btn--ghost btn--sm">Mark Paid</button></td></tr>
+              <tr><td>Vihaan S.</td><td>Atomic Habits</td><td>0</td><td>₹0</td><td><span class="chip chip--ok">Paid</span></td><td><button class="btn btn--ghost btn--sm" disabled>—</button></td></tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <!-- ============== ANALYTICS VIEW ============== -->
+      <section class="view" data-view="analytics">
+        <header class="view__head"><div><span class="kicker">Analytics</span><h2>Circulation Insights</h2></div></header>
+        <div class="workspace">
+          <article class="panel glass"><h3>Borrowing Trend</h3><div class="chart" id="trendChart"></div></article>
+          <article class="panel glass"><h3>Category Popularity</h3>
+            <ul class="bar-list">
+              <li><span>Fiction</span><div class="bar"><i style="width:78%"></i></div><em>78%</em></li>
+              <li><span>Computer Science</span><div class="bar"><i style="width:64%"></i></div><em>64%</em></li>
+              <li><span>Physics</span><div class="bar"><i style="width:42%"></i></div><em>42%</em></li>
+              <li><span>Design</span><div class="bar"><i style="width:55%"></i></div><em>55%</em></li>
+              <li><span>History</span><div class="bar"><i style="width:33%"></i></div><em>33%</em></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============== ANNOUNCEMENTS ============== -->
+      <section class="view" data-view="announcements">
+        <header class="view__head"><div><span class="kicker">Announcements</span><h2>Library Broadcasts</h2></div>
+        <button class="btn btn--primary">+ New Announcement</button></header>
+        <div class="announce-grid">
+          <article class="panel glass"><span class="chip chip--peach">Update</span><h3>New Sci-Fi Collection</h3><p>42 new titles added to Floor 3. Featuring Ted Chiang, Becky Chambers and more.</p><span class="muted-small">Posted 2h ago</span></article>
+          <article class="panel glass"><span class="chip chip--warn">Maintenance</span><h3>System Downtime Sun 2–4 AM</h3><p>QR scanner and database briefly offline during sync upgrade.</p><span class="muted-small">Posted yesterday</span></article>
+          <article class="panel glass"><span class="chip chip--ok">Policy</span><h3>Faculty Loan Extension</h3><p>Faculty borrowing window extended to 30 days starting next month.</p><span class="muted-small">Posted 3d ago</span></article>
+        </div>
+      </section>
+
+      <!-- ============== GUIDELINES ============== -->
+      <section class="view" data-view="guidelines">
+        <header class="view__head"><div><span class="kicker">Guidelines</span><h2>Operating Manual</h2></div></header>
+        <div class="accordion" id="accordion">
+          <details open><summary>Issue & Return Policy</summary><p>Books are issued for 14 days. Renewals allowed once per title. Returns past due date attract ₹10/day fine.</p></details>
+          <details><summary>Librarian Responsibilities</summary><p>Verify student ID on every issue. Approve publisher orders within 48 hours. Conduct weekly shelf audits.</p></details>
+          <details><summary>Reservation Rules</summary><p>Reservations expire after 24 hours if uncollected. Maximum 3 active reservations per user.</p></details>
+          <details><summary>Fine Handling</summary><p>Fines above ₹500 require head librarian approval to waive. All transactions logged automatically.</p></details>
+        </div>
+      </section>
+
+      <!-- ============== NOTIFICATIONS ============== -->
+      <section class="view" data-view="notifications">
+        <header class="view__head"><div><span class="kicker">Notifications</span><h2>All Notifications</h2></div></header>
+        <article class="panel glass">
+          <ul class="notif-list notif-list--full">
+            <li><span class="dot dot--warn"></span><div><strong>12 books overdue</strong><span>4 students > 7 days</span></div><em>3m</em></li>
+            <li><span class="dot dot--peach"></span><div><strong>New publisher request</strong><span>Penguin Random House — 24 titles</span></div><em>18m</em></li>
+            <li><span class="dot dot--ok"></span><div><strong>QR batch generated</strong><span>50 codes ready for printing</span></div><em>1h</em></li>
+            <li><span class="dot dot--ok"></span><div><strong>Inventory synced</strong><span>3,481 titles · last 2 minutes</span></div><em>2h</em></li>
+            <li><span class="dot dot--peach"></span><div><strong>Faculty extension request</strong><span>Prof. Iyer — 7 day extension</span></div><em>5h</em></li>
+          </ul>
+        </article>
+      </section>
+
+      <!-- ============== DATABASE SEARCH ============== -->
+      <section class="view" data-view="search">
+        <header class="view__head"><div><span class="kicker">Database</span><h2>Universal Search</h2></div></header>
+        <article class="panel glass">
+          <input class="field field--lg" id="dbSearch" placeholder="Search books, students, faculty, publishers…" />
+          <div class="db-results" id="dbResults"></div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <!-- OKIO Assistant -->
+  <div class="okio-panel glass" id="okioPanel" hidden>
+    <header class="okio-panel__head">
+      <img src="assets/okio.png" alt="OKIO" />
+      <div><strong>OKIO</strong><span>Librarian assistant</span></div>
+      <button class="icon-btn" id="okioClose" aria-label="Close">✕</button>
+    </header>
+    <div class="okio-panel__body" id="okioBody">
+      <div class="okio-msg okio-msg--bot">Hi Saanvi 👋 I can summarize today's queue, draft overdue reminders, or pull any catalog stat. What do you need?</div>
+    </div>
+    <div class="okio-panel__suggest" id="okioSuggest">
+      <button>Summarize overdue list</button>
+      <button>Draft polite reminder</button>
+      <button>Top 5 books this week</button>
+    </div>
+    <form class="okio-panel__input" id="okioForm">
+      <input type="text" id="okioInput" placeholder="Ask OKIO…" />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="librarian-dashboard.js" defer></script>
+</body>
+</html>
