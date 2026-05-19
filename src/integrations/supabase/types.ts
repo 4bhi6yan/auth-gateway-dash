@@ -14,16 +14,156 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      books: {
+        Row: {
+          added_by: string | null
+          author: string
+          available_copies: number
+          category: string | null
+          cover_url: string | null
+          created_at: string
+          description: string | null
+          id: string
+          isbn: string | null
+          publisher_id: string | null
+          title: string
+          total_copies: number
+        }
+        Insert: {
+          added_by?: string | null
+          author: string
+          available_copies?: number
+          category?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          isbn?: string | null
+          publisher_id?: string | null
+          title: string
+          total_copies?: number
+        }
+        Update: {
+          added_by?: string | null
+          author?: string
+          available_copies?: number
+          category?: string | null
+          cover_url?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          isbn?: string | null
+          publisher_id?: string | null
+          title?: string
+          total_copies?: number
+        }
+        Relationships: []
+      }
+      borrow_records: {
+        Row: {
+          book_id: string
+          borrowed_at: string | null
+          created_at: string
+          due_date: string | null
+          id: string
+          returned_at: string | null
+          status: Database["public"]["Enums"]["borrow_status"]
+          user_id: string
+        }
+        Insert: {
+          book_id: string
+          borrowed_at?: string | null
+          created_at?: string
+          due_date?: string | null
+          id?: string
+          returned_at?: string | null
+          status?: Database["public"]["Enums"]["borrow_status"]
+          user_id: string
+        }
+        Update: {
+          book_id?: string
+          borrowed_at?: string | null
+          created_at?: string
+          due_date?: string | null
+          id?: string
+          returned_at?: string | null
+          status?: Database["public"]["Enums"]["borrow_status"]
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "borrow_records_book_id_fkey"
+            columns: ["book_id"]
+            isOneToOne: false
+            referencedRelation: "books"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string | null
+          full_name: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          full_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_user_role: {
+        Args: { _user_id: string }
+        Returns: Database["public"]["Enums"]["app_role"]
+      }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "student" | "faculty" | "librarian" | "publisher"
+      borrow_status:
+        | "requested"
+        | "issued"
+        | "returned"
+        | "overdue"
+        | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +290,9 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["student", "faculty", "librarian", "publisher"],
+      borrow_status: ["requested", "issued", "returned", "overdue", "rejected"],
+    },
   },
 } as const
