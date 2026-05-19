@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "CIrcuLib" },
+      { name: "description", content: "Campus Connect Hub provides secure user authentication and role-based dashboard access for students and faculty." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "CIrcuLib" },
+      { property: "og:description", content: "Campus Connect Hub provides secure user authentication and role-based dashboard access for students and faculty." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "CIrcuLib" },
+      { name: "twitter:description", content: "Campus Connect Hub provides secure user authentication and role-based dashboard access for students and faculty." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/93d9e12b-a4ec-438f-81bc-ff8e36e27a28/id-preview-032f0595--37dbed93-3cfd-4694-9007-fbea14e28818.lovable.app-1779229048059.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/93d9e12b-a4ec-438f-81bc-ff8e36e27a28/id-preview-032f0595--37dbed93-3cfd-4694-9007-fbea14e28818.lovable.app-1779229048059.png" },
     ],
     links: [
       {
